@@ -18,7 +18,7 @@ public class TransactionIngestor {
                     .map(this::parseTransaction)
                     .toList();
         }catch (Exception ex) {
-            throw new RuntimeException("Erro ao ler o arquivo" + filename, ex);
+            throw new RuntimeException("Erro ao ler o arquivo: " + filename, ex);
         }
 
     }
