@@ -71,5 +71,27 @@ public class Main {
         IO.println("Fraudes por tipo:");
         fraudCountByType.forEach((type, count) -> IO.println("-" + type + ": " + count));
 
+        IO.println("------------------------------------");
+
+        TransactionRepository transactionRepository ;
+        transactionRepository = new TransactionListRepository(transactions);
+        String notFoundOriginName = "C12345";
+        transactionRepository.findByOriginName(notFoundOriginName)
+                .ifPresentOrElse(IO::println, () -> IO.println("Transação não encontrada para: "+ notFoundOriginName));
+
+        String existingOriginName = "C1868032458";
+        long startTimeList = System.nanoTime();
+        transactionRepository.findByOriginName(existingOriginName)
+                .ifPresentOrElse(IO::println, ()-> IO.println("Transação não encontrada para: "+ existingOriginName));
+        long endTimeList = System.nanoTime();
+        IO.println("Tempo de busca - List (ms) " + (endTimeList - startTimeList) / 1_000_000.0);
+
+        transactionRepository = new TransactionMapRepository(transactions);
+        startTimeList = System.nanoTime();
+        transactionRepository.findByOriginName(existingOriginName).
+                ifPresentOrElse(IO::println, ()-> IO.println("Transação não encontrada para: "+ existingOriginName));
+        endTimeList = System.nanoTime();
+        IO.println("Tempo de busca - Map (ms) " + (endTimeList - startTimeList) / 1_000_000.0);
+
     }
 }
