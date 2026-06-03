@@ -1,4 +1,8 @@
-package br.com.zenon;
+package br.com.zenon.service;
+
+import br.com.zenon.domain.Transaction;
+import br.com.zenon.domain.TransactionCustumer;
+import br.com.zenon.domain.TransactionType;
 
 import java.math.BigDecimal;
 import java.nio.file.Files;

@@ -1,4 +1,4 @@
-package br.com.zenon;
+package br.com.zenon.domain;
 
 import java.util.Optional;
 

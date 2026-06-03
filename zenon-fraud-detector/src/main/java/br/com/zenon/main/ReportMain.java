@@ -1,6 +1,7 @@
-package br.com.zenon;
+package br.com.zenon.main;
 
-import br.com.zenon.TransactionReport.Statistics;
+import br.com.zenon.service.TransactionReport;
+import br.com.zenon.service.TransactionReport.Statistics;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
